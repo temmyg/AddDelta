@@ -1,5 +1,5 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed AddDelta request.');
     
     if (req.query.ground || (req.body && req.body.ground)) {
         context.res = {
@@ -13,4 +13,6 @@ module.exports = async function (context, req) {
             body: "Please pass a ground value on the query string or in the request body"
         };
     }
+
+    context.done();
 };
